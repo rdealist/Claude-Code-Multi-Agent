@@ -1,212 +1,243 @@
-name: "Base PRP Template v2 - Context-Rich with Validation Loops"
-description: |
-
-## Purpose
-Template optimized for AI agents to implement features with sufficient context and self-validation capabilities to achieve working code through iterative refinement.
-
-## Core Principles
-1. **Context is King**: Include ALL necessary documentation, examples, and caveats
-2. **Validation Loops**: Provide executable tests/lints the AI can run and fix
-3. **Information Dense**: Use keywords and patterns from the codebase
-4. **Progressive Success**: Start simple, validate, then enhance
-5. **Global rules**: Be sure to follow all rules in CLAUDE.md
 
 ---
 
-## Goal
-[What needs to be built - be specific about the end state and desires]
+name: "基础 PRP 模板 v2 - 上下文丰富且具备验证循环"
+description: |
 
-## Why
-- [Business value and user impact]
-- [Integration with existing features]
-- [Problems this solves and for whom]
+---
 
-## What
-[User-visible behavior and technical requirements]
+## 目的
 
-### Success Criteria
-- [ ] [Specific measurable outcomes]
+专为 AI Agent 优化的模板，旨在通过提供充足的上下文和自我验证能力，通过迭代优化实现可工作的代码。
 
-## All Needed Context
+## 核心原则
 
-### Documentation & References (list all context needed to implement the feature)
+1. **上下文为王 (Context is King)**：包含所有必要的文档、示例和注意事项。
+2. **验证循环 (Validation Loops)**：提供 AI 可以运行并修复的可执行测试/代码检查 (Lint)。
+3. **信息密度 (Information Dense)**：使用代码库中的关键词和模式。
+4. **循序渐进 (Progressive Success)**：从简单开始，验证，然后增强。
+5. **全局规则 (Global rules)**：务必遵循 CLAUDE.md 中的所有规则。
+
+---
+
+## 目标
+
+[需要构建什么 - 具体说明最终状态和期望]
+
+## 原因 (Why)
+
+* [商业价值和用户影响]
+* [与现有功能的集成]
+* [解决了什么问题，为谁解决]
+
+## 内容 (What)
+
+[用户可见的行为和技术要求]
+
+### 成功标准
+
+* [ ] [具体的、可衡量的结果]
+
+## 所有必需的上下文
+
+### 文档与参考资料 (列出实现该功能所需的所有上下文)
+
 ```yaml
-# MUST READ - Include these in your context window
-- url: [Official API docs URL]
-  why: [Specific sections/methods you'll need]
+# 必读 - 将这些包含在你的上下文窗口中
+- url: [官方 API 文档 URL]
+  why: [你需要的特定部分/方法]
   
 - file: [path/to/example.py]
-  why: [Pattern to follow, gotchas to avoid]
+  why: [要遵循的模式，要避免的坑]
   
-- doc: [Library documentation URL] 
-  section: [Specific section about common pitfalls]
-  critical: [Key insight that prevents common errors]
+- doc: [库文档 URL] 
+  section: [关于常见陷阱的特定部分]
+  critical: [防止常见错误的关键见解]
 
 - docfile: [PRPs/ai_docs/file.md]
-  why: [docs that the user has pasted in to the project]
+  why: [用户粘贴到项目中的文档]
 
 ```
 
-### Current Codebase tree (run `tree` in the root of the project) to get an overview of the codebase
+### 当前代码库树状图 (在项目根目录运行 `tree` 以获取代码库概览)
+
 ```bash
 
+
 ```
 
-### Desired Codebase tree with files to be added and responsibility of file
+### 期望的代码库树状图（包含要添加的文件及文件职责）
+
 ```bash
 
+
 ```
 
-### Known Gotchas of our codebase & Library Quirks
+### 已知陷阱与库的怪癖 (Gotchas & Quirks)
+
 ```python
-# CRITICAL: [Library name] requires [specific setup]
-# Example: FastAPI requires async functions for endpoints
-# Example: This ORM doesn't support batch inserts over 1000 records
-# Example: We use pydantic v2 and  
+# 关键：[库名称] 需要 [特定设置]
+# 例如：FastAPI 端点需要异步函数 (async functions)
+# 例如：此 ORM 不支持批量插入超过 1000 条记录
+# 例如：我们使用 pydantic v2 并且...
+
 ```
 
-## Implementation Blueprint
+## 实现蓝图
 
-### Data models and structure
+### 数据模型和结构
 
-Create the core data models, we ensure type safety and consistency.
+创建核心数据模型，确保类型安全和一致性。
+
 ```python
-Examples: 
- - orm models
- - pydantic models
+示例：
+ - orm 模型
+ - pydantic 模型
  - pydantic schemas
- - pydantic validators
+ - pydantic 验证器
 
 ```
 
-### list of tasks to be completed to fullfill the PRP in the order they should be completed
+### 完成 PRP 所需的任务列表（按完成顺序排列）
 
 ```yaml
-Task 1:
-MODIFY src/existing_module.py:
-  - FIND pattern: "class OldImplementation"
-  - INJECT after line containing "def __init__"
-  - PRESERVE existing method signatures
+任务 1:
+修改 (MODIFY) src/existing_module.py:
+  - 查找模式 (FIND pattern): "class OldImplementation"
+  - 注入位置 (INJECT after): 在包含 "def __init__" 的行之后
+  - 保留 (PRESERVE): 现有的方法签名
 
-CREATE src/new_feature.py:
-  - MIRROR pattern from: src/similar_feature.py
-  - MODIFY class name and core logic
-  - KEEP error handling pattern identical
+创建 (CREATE) src/new_feature.py:
+  - 镜像模式 (MIRROR pattern from): 参考 src/similar_feature.py
+  - 修改 (MODIFY): 类名和核心逻辑
+  - 保持 (KEEP): 错误处理模式一致
 
 ...(...)
 
-Task N:
+任务 N:
 ...
 
 ```
 
+### 根据需要的每个任务的伪代码
 
-### Per task pseudocode as needed added to each task
 ```python
 
-# Task 1
-# Pseudocode with CRITICAL details dont write entire code
+# 任务 1
+# 伪代码包含关键细节，不要写出完整代码
 async def new_feature(param: str) -> Result:
-    # PATTERN: Always validate input first (see src/validators.py)
-    validated = validate_input(param)  # raises ValidationError
+    # 模式 (PATTERN): 始终先验证输入 (参考 src/validators.py)
+    validated = validate_input(param)  # 抛出 ValidationError
     
-    # GOTCHA: This library requires connection pooling
-    async with get_connection() as conn:  # see src/db/pool.py
-        # PATTERN: Use existing retry decorator
+    # 陷阱 (GOTCHA): 此库需要连接池
+    async with get_connection() as conn:  # 参考 src/db/pool.py
+        # 模式 (PATTERN): 使用现有的重试装饰器
         @retry(attempts=3, backoff=exponential)
         async def _inner():
-            # CRITICAL: API returns 429 if >10 req/sec
+            # 关键 (CRITICAL): 如果 >10 req/sec，API 返回 429
             await rate_limiter.acquire()
             return await external_api.call(validated)
         
         result = await _inner()
     
-    # PATTERN: Standardized response format
-    return format_response(result)  # see src/utils/responses.py
+    # 模式 (PATTERN): 标准化的响应格式
+    return format_response(result)  # 参考 src/utils/responses.py
+
 ```
 
-### Integration Points
+### 集成点
+
 ```yaml
-DATABASE:
-  - migration: "Add column 'feature_enabled' to users table"
-  - index: "CREATE INDEX idx_feature_lookup ON users(feature_id)"
+数据库 (DATABASE):
+  - 迁移 (migration): "向 users 表添加 'feature_enabled' 列"
+  - 索引 (index): "CREATE INDEX idx_feature_lookup ON users(feature_id)"
   
-CONFIG:
-  - add to: config/settings.py
-  - pattern: "FEATURE_TIMEOUT = int(os.getenv('FEATURE_TIMEOUT', '30'))"
+配置 (CONFIG):
+  - 添加到 (add to): config/settings.py
+  - 模式 (pattern): "FEATURE_TIMEOUT = int(os.getenv('FEATURE_TIMEOUT', '30'))"
   
-ROUTES:
-  - add to: src/api/routes.py  
-  - pattern: "router.include_router(feature_router, prefix='/feature')"
+路由 (ROUTES):
+  - 添加到 (add to): src/api/routes.py  
+  - 模式 (pattern): "router.include_router(feature_router, prefix='/feature')"
+
 ```
 
-## Validation Loop
+## 验证循环
 
-### Level 1: Syntax & Style
+### 第 1 层：语法与风格
+
 ```bash
-# Run these FIRST - fix any errors before proceeding
-ruff check src/new_feature.py --fix  # Auto-fix what's possible
-mypy src/new_feature.py              # Type checking
+# 首先运行这些 - 在继续之前修复所有错误
+ruff check src/new_feature.py --fix  # 自动修复可能的错误
+mypy src/new_feature.py              # 类型检查
 
-# Expected: No errors. If errors, READ the error and fix.
+# 预期：无错误。如果有错误，阅读错误信息并修复。
+
 ```
 
-### Level 2: Unit Tests each new feature/file/function use existing test patterns
+### 第 2 层：单元测试（每个新功能/文件/函数使用现有的测试模式）
+
 ```python
-# CREATE test_new_feature.py with these test cases:
+# 创建 (CREATE) test_new_feature.py 并包含这些测试用例：
 def test_happy_path():
-    """Basic functionality works"""
+    """基本功能正常工作"""
     result = new_feature("valid_input")
     assert result.status == "success"
 
 def test_validation_error():
-    """Invalid input raises ValidationError"""
+    """无效输入引发 ValidationError"""
     with pytest.raises(ValidationError):
         new_feature("")
 
 def test_external_api_timeout():
-    """Handles timeouts gracefully"""
+    """优雅地处理超时"""
     with mock.patch('external_api.call', side_effect=TimeoutError):
         result = new_feature("valid")
         assert result.status == "error"
         assert "timeout" in result.message
+
 ```
 
 ```bash
-# Run and iterate until passing:
+# 运行并迭代直到通过：
 uv run pytest test_new_feature.py -v
-# If failing: Read error, understand root cause, fix code, re-run (never mock to pass)
+# 如果失败：阅读错误，理解根本原因，修复代码，重新运行（永远不要为了通过测试而 mock 一切/造假）
+
 ```
 
-### Level 3: Integration Test
+### 第 3 层：集成测试
+
 ```bash
-# Start the service
+# 启动服务
 uv run python -m src.main --dev
 
-# Test the endpoint
+# 测试端点
 curl -X POST http://localhost:8000/feature \
   -H "Content-Type: application/json" \
   -d '{"param": "test_value"}'
 
-# Expected: {"status": "success", "data": {...}}
-# If error: Check logs at logs/app.log for stack trace
+# 预期: {"status": "success", "data": {...}}
+# 如果出错: 检查 logs/app.log 中的堆栈跟踪
+
 ```
 
-## Final validation Checklist
-- [ ] All tests pass: `uv run pytest tests/ -v`
-- [ ] No linting errors: `uv run ruff check src/`
-- [ ] No type errors: `uv run mypy src/`
-- [ ] Manual test successful: [specific curl/command]
-- [ ] Error cases handled gracefully
-- [ ] Logs are informative but not verbose
-- [ ] Documentation updated if needed
+## 最终验证清单
+
+* [ ] 所有测试通过: `uv run pytest tests/ -v`
+* [ ] 无代码检查 (Linting) 错误: `uv run ruff check src/`
+* [ ] 无类型错误: `uv run mypy src/`
+* [ ] 手动测试成功: [具体的 curl/命令]
+* [ ] 错误情况处理得当
+* [ ] 日志信息丰富但不过于冗长
+* [ ] 文档已更新（如果需要）
 
 ---
 
-## Anti-Patterns to Avoid
-- ❌ Don't create new patterns when existing ones work
-- ❌ Don't skip validation because "it should work"  
-- ❌ Don't ignore failing tests - fix them
-- ❌ Don't use sync functions in async context
-- ❌ Don't hardcode values that should be config
-- ❌ Don't catch all exceptions - be specific
+## 要避免的反模式 (Anti-Patterns)
+
+* ❌ 现有模式可行时，不要创建新模式
+* ❌ 不要因为“应该能行”就跳过验证
+* ❌ 不要忽略失败的测试 - 修复它们
+* ❌ 不要在异步上下文中使用同步函数
+* ❌ 不要硬编码本应配置的值
+* ❌ 不要捕获所有异常 (catch all) - 要具体捕获

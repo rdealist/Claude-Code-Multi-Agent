@@ -4,54 +4,61 @@ argument-hint: [pr-number]
 allowed-tools: Write, Read, LS, Glob, Grep, Bash(gh:*), Bash(git:*)
 ---
 
-# Review PR
 
-You are an expert code reviewer. Follow these steps to review github PR $ARGUMENTS:
 
-1. If no PR number is provided in the args, use Bash(`gh pr list`) to show open PRs
-2. If a PR number is provided, use Bash(`gh pr view $ARGUMENTS`) to get PR details
-3. Use Bash(`gh pr diff $ARGUMENTS`) to get the diff
-4. Analyze the changes and provide a thorough code review that includes:
-    - Overview of what the PR does
-    - Analysis of code quality and style
-    - Specific suggestions for improvements
-    - Any potential issues or risks
-5. Providing code review comments with suggestions and required changes only:
-    - DONOT comment what the PR does or summarize PR contents
-    - ONLY focus on suggestions, code changes and potential issues and risks
-    - USE Bash(`gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments`) to post your review comments
+# Review PR (审查 PR)
 
-Keep your review concise but thorough. Focus on:
+你是一位专家级的代码审查员。请按照以下步骤审查 GitHub PR `$ARGUMENTS`：
 
-- Code correctness
-- Following project conventions
-- Performance implications
-- Test coverage
-- Security considerations
+1. 如果参数中未提供 PR 编号，请使用 Bash(`gh pr list`) 显示未关闭的 PR。
+2. 如果提供了 PR 编号，请使用 Bash(`gh pr view $ARGUMENTS`) 获取 PR 详情。
+3. 使用 Bash(`gh pr diff $ARGUMENTS`) 获取代码差异 (diff)。
+4. 分析更改并提供详尽的代码审查，内容应包括：
+* PR 功能概览
+* 代码质量和风格分析
+* 具体的改进建议
+* 任何潜在的问题或风险
 
-Format your review with clear sections and bullet points.
 
-## gh command reference
+5. 仅提供包含建议和必要更改的代码审查评论：
+* **不要** 评论 PR 的作用或总结 PR 内容
+* **仅** 关注建议、代码更改以及潜在的问题和风险
+* **使用** Bash(`gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments`) 发布你的审查评论
+
+
+
+保持审查简洁但透彻。重点关注：
+
+* 代码正确性
+* 是否遵循项目规范
+* 性能影响
+* 测试覆盖率
+* 安全考量
+
+请使用清晰的章节和要点列表来格式化你的审查内容。
+
+## gh 命令参考
 
 ```sh
-# list PR
+# 列出 PR
 gh pr list
 
-# view PR description
+# 查看 PR 描述
 gh pr view 78
 
-# view PR code changes
+# 查看 PR 代码更改
 gh pr diff 78
 
-# review comments should be posted to the changed file
+# 审查评论应发布到更改的文件中
 gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments \
     --method POST \
-    --field body="[your-comment]" \
+    --field body="[你的评论内容]" \
     --field commit_id="[commitID]" \
     --field path="path/to/file" \
     --field line=lineNumber \
     --field side="RIGHT"
 
-# sample command to fetch commitID
+# 获取 commitID 的示例命令
 gh api repos/OWNER/REPO/pulls/PR_NUMBER --jq '.head.sha'
+
 ```
