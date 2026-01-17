@@ -5,6 +5,16 @@
 
 ## [2026-01-18]
 ### Added
+- feat(tools): Claude Config Manager TUI tool
+  - `tools/claude-config-manager/` - project configuration management
+  - Core modules: ConfigManager, ProfileManager, GitSync, Validator
+  - CLI: ccm (info, validate, create, import-config, export, git)
+  - TUI: Textual-based interactive interface
+  - Profiles: full, frontend, backend, algorithm
+  - Features: project creation, config import/export, validation, Git sync
+- feat(config): Add profiles.json for configuration templates
+  - 4 profiles: full (13 MCP, 20 Skills), frontend, backend, algorithm
+  - Skill-to-MCP dependency mapping
 - feat(branch): Create domain-specific configuration branches
   - `frontend`: playwright, magic-ui, chrome-devtools, magic
   - `backend`: mysql, redis-mcp, docker

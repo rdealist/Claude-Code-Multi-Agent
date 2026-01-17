@@ -1,0 +1,153 @@
+{
+  "version": "1.0.0",
+  "description": "Claude Code project configuration profiles",
+  "profiles": {
+    "full": {
+      "name": "完整配置（主干分支）",
+      "description": "包含所有 MCP 服务器和 Skills",
+      "mcpServers": [
+        "Context7",
+        "mcp-feedback-enhanced",
+        "Sequential Thinking",
+        "Shrimp Task Manager",
+        "filesystem",
+        "magic",
+        "playwright",
+        "docker",
+        "mysql",
+        "magic-ui",
+        "time-mcp",
+        "redis-mcp",
+        "chrome-devtools"
+      ],
+      "skills": [
+        "architecture-specialist",
+        "backend-specialist",
+        "changelog-generator",
+        "code-quality-specialist",
+        "data-specialist",
+        "design-specialist",
+        "document-skills",
+        "documentation-specialist",
+        "file-organizer",
+        "frontend-specialist",
+        "github-specialist",
+        "language-framework-specialist",
+        "lead-research-assistant",
+        "marketing-specialist",
+        "mcp-builder",
+        "product-specialist",
+        "project-management-specialist",
+        "security-specialist",
+        "skill-creator",
+        "testing-specialist",
+        "ui-ux-pro-max",
+        "webapp-testing"
+      ],
+      "requiredEnvVars": [
+        "MYSQL_HOST",
+        "MYSQL_PORT",
+        "MYSQL_USER",
+        "MYSQL_PASS",
+        "MYSQL_DB",
+        "REDIS_HOST",
+        "REDIS_PORT",
+        "REDIS_PASS",
+        "REDIS_DB",
+        "MAGIC_API_KEY"
+      ]
+    },
+    "frontend": {
+      "name": "前端开发配置",
+      "description": "UI/UX 开发、浏览器自动化、组件库",
+      "mcpServers": [
+        "mcp-feedback-enhanced",
+        "Sequential Thinking",
+        "Shrimp Task Manager",
+        "filesystem",
+        "playwright",
+        "magic",
+        "magic-ui",
+        "chrome-devtools",
+        "time-mcp"
+      ],
+      "skills": [
+        "frontend-specialist",
+        "design-specialist",
+        "ui-ux-pro-max",
+        "webapp-testing",
+        "code-quality-specialist",
+        "testing-specialist",
+        "documentation-specialist",
+        "skill-creator"
+      ],
+      "requiredEnvVars": ["MAGIC_API_KEY"]
+    },
+    "backend": {
+      "name": "后端开发配置",
+      "description": "数据库、缓存、容器化、API 开发",
+      "mcpServers": [
+        "mcp-feedback-enhanced",
+        "Sequential Thinking",
+        "Shrimp Task Manager",
+        "filesystem",
+        "mysql",
+        "redis-mcp",
+        "docker",
+        "time-mcp"
+      ],
+      "skills": [
+        "backend-specialist",
+        "data-specialist",
+        "architecture-specialist",
+        "security-specialist",
+        "testing-specialist",
+        "code-quality-specialist",
+        "documentation-specialist",
+        "skill-creator"
+      ],
+      "requiredEnvVars": [
+        "MYSQL_HOST",
+        "MYSQL_PORT",
+        "MYSQL_USER",
+        "MYSQL_PASS",
+        "MYSQL_DB",
+        "REDIS_HOST",
+        "REDIS_PORT",
+        "REDIS_PASS",
+        "REDIS_DB"
+      ]
+    },
+    "algorithm": {
+      "name": "算法/AI 开发配置",
+      "description": "深度思考、任务管理、代码理解、文档生成",
+      "mcpServers": [
+        "Context7",
+        "mcp-feedback-enhanced",
+        "Sequential Thinking",
+        "Shrimp Task Manager",
+        "filesystem",
+        "time-mcp"
+      ],
+      "skills": [
+        "code-quality-specialist",
+        "testing-specialist",
+        "documentation-specialist",
+        "language-framework-specialist",
+        "architecture-specialist",
+        "mcp-builder",
+        "skill-creator"
+      ],
+      "requiredEnvVars": []
+    }
+  },
+  "dependencies": {
+    "skills": {
+      "webapp-testing": ["playwright"],
+      "ui-ux-pro-max": ["magic-ui", "magic"],
+      "data-specialist": ["mysql", "redis-mcp"],
+      "backend-specialist": ["mysql", "redis-mcp", "docker"],
+      "mcp-builder": ["Context7", "Sequential Thinking"]
+    }
+  }
+}

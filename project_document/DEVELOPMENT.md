@@ -14,6 +14,13 @@
 - None (all tasks completed)
 
 ## Recently Completed
+- [2026-01-18] Claude Config Manager TUI tool
+  - Created `tools/claude-config-manager/` with Textual TUI
+  - Core modules: ConfigManager, ProfileManager, GitSync, Validator
+  - CLI commands: ccm info, validate, create, import-config, export, git
+  - Profile templates: full (13 MCP, 20 Skills), frontend, backend, algorithm
+  - Features: project creation, config import, export, validation, Git sync
+  - Installation: `cd tools/claude-config-manager && uv venv .venv && uv pip install -e .`
 - [2026-01-18] Git workflow configuration
   - Configured Git Hooks for code quality checks
   - pre-commit: debug statements, large files, sensitive data detection
