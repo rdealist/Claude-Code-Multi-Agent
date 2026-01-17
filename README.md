@@ -83,6 +83,44 @@ git checkout algorithm  # 算法研究
 git checkout master     # 完整配置
 ```
 
+### 配置管理工具 (CCM)
+
+使用 Claude Config Manager 快速创建和管理项目配置：
+
+```bash
+# 安装 CCM（首次使用自动安装）
+./ccm
+
+# 创建新项目（选择配置模板）
+./ccm create --target ~/my-project --profile full      # 完整配置
+./ccm create --target ~/my-project --profile frontend  # 前端开发
+./ccm create --target ~/my-project --profile backend   # 后端开发
+./ccm create --target ~/my-project --profile algorithm # 算法研究
+
+# 导入配置到现有项目
+./ccm import-config --target ~/existing-project --profile frontend
+
+# 验证配置完整性
+./ccm validate
+
+# 查看当前配置
+./ccm info
+
+# 导出配置（便于分享）
+./ccm export --output my-config.json
+```
+
+**配置模板对比**：
+
+| 模板 | MCP 服务器 | Skills | 适用场景 |
+|------|-----------|--------|---------|
+| full | 13 | 22 | 全栈开发、完整功能 |
+| frontend | 9 | 8 | React/Vue/Next.js 开发 |
+| backend | 8 | 8 | Django/FastAPI/Spring 开发 |
+| algorithm | 6 | 7 | AI/算法研究、深度思考 |
+
+> 📖 **CCM 详细文档**：[tools/claude-config-manager/README.md](./tools/claude-config-manager/README.md)
+
 ---
 
 ## 💡 Skills 专家
