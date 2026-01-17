@@ -31,11 +31,13 @@
       "Skill(data-specialist)",
       "mcp__filesystem__read_text_file",
       "Bash(python3:*)",
-      "Skill(ui-ux-pro-max)"
+      "Skill(ui-ux-pro-max)",
+      "mcp__acp__Bash"
     ],
     "deny": [],
     "ask": []
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "Context7",
     "mcp-feedback-enhanced",
@@ -51,6 +53,5 @@
     "time-mcp",
     "redis-mcp",
     "chrome-devtools"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

@@ -36,7 +36,3 @@ desktop.ini
 *.egg-info/
 dist/
 build/
-
-
-#github
-.github/
