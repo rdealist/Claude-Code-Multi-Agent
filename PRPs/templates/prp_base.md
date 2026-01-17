@@ -1,243 +1,202 @@
-
 ---
-
 name: "基础 PRP 模板 v2 - 上下文丰富且具备验证循环"
-description: |
-
+description: "专为 AI Agent 优化：充足上下文 + 自我验证 + 迭代优化"
 ---
-
-## 目的
-
-专为 AI Agent 优化的模板，旨在通过提供充足的上下文和自我验证能力，通过迭代优化实现可工作的代码。
 
 ## 核心原则
 
-1. **上下文为王 (Context is King)**：包含所有必要的文档、示例和注意事项。
-2. **验证循环 (Validation Loops)**：提供 AI 可以运行并修复的可执行测试/代码检查 (Lint)。
-3. **信息密度 (Information Dense)**：使用代码库中的关键词和模式。
-4. **循序渐进 (Progressive Success)**：从简单开始，验证，然后增强。
-5. **全局规则 (Global rules)**：务必遵循 CLAUDE.md 中的所有规则。
+1. **充足上下文**：包含所有必要文档、示例和注意事项
+2. **验证循环**：提供可执行测试和代码检查，AI 可自行修复
+3. **信息密度**：使用代码库关键词和模式
+4. **循序渐进**：从简单开始，验证后增强
+5. **全局规则**：遵循 CLAUDE.md 所有规则
 
 ---
 
 ## 目标
 
-[需要构建什么 - 具体说明最终状态和期望]
+[明确说明构建内容 - 最终状态和期望结果]
 
-## 原因 (Why)
+## 原因
 
 * [商业价值和用户影响]
-* [与现有功能的集成]
-* [解决了什么问题，为谁解决]
+* [与现有系统的集成方式]
+* [解决的问题及受益者]
 
-## 内容 (What)
+## 内容
 
-[用户可见的行为和技术要求]
+[用户可见行为和技术实现要求]
 
-### 成功标准
+**成功标准：**
+* [ ] [具体可衡量的结果指标]
 
-* [ ] [具体的、可衡量的结果]
+## 必需上下文
 
-## 所有必需的上下文
-
-### 文档与参考资料 (列出实现该功能所需的所有上下文)
+### 文档与参考资料
 
 ```yaml
-# 必读 - 将这些包含在你的上下文窗口中
-- url: [官方 API 文档 URL]
-  why: [你需要的特定部分/方法]
+# 必读 - 包含在上下文窗口中
+- url: [官方 API 文档]
+  why: [需要的特定部分/方法]
   
 - file: [path/to/example.py]
-  why: [要遵循的模式，要避免的坑]
+  why: [参考模式/需避免的陷阱]
   
 - doc: [库文档 URL] 
-  section: [关于常见陷阱的特定部分]
-  critical: [防止常见错误的关键见解]
-
+  section: [关键章节或常见陷阱]
+  
 - docfile: [PRPs/ai_docs/file.md]
-  why: [用户粘贴到项目中的文档]
-
+  why: [用户提供的补充文档]
 ```
 
-### 当前代码库树状图 (在项目根目录运行 `tree` 以获取代码库概览)
+### 代码库结构
 
-```bash
+运行 `tree -L 3 -I 'node_modules|__pycache__|.git'` 获取项目结构,并说明需新增文件及其职责。
 
-
-```
-
-### 期望的代码库树状图（包含要添加的文件及文件职责）
-
-```bash
-
-
-```
-
-### 已知陷阱与库的怪癖 (Gotchas & Quirks)
+### 已知陷阱与库特性
 
 ```python
-# 关键：[库名称] 需要 [特定设置]
-# 例如：FastAPI 端点需要异步函数 (async functions)
-# 例如：此 ORM 不支持批量插入超过 1000 条记录
-# 例如：我们使用 pydantic v2 并且...
-
+# [库名称] 特定要求：[配置/用法]
+# 示例：FastAPI 端点必须使用 async 函数
+# 示例：此 ORM 批量插入限制 1000 条/次
+# 示例：项目使用 pydantic v2,注意迁移差异
 ```
 
 ## 实现蓝图
 
-### 数据模型和结构
-
-创建核心数据模型，确保类型安全和一致性。
+### 数据模型设计
 
 ```python
-示例：
- - orm 模型
- - pydantic 模型
- - pydantic schemas
- - pydantic 验证器
-
+# 定义核心数据结构,确保类型安全
+# 包含：ORM 模型、Pydantic 模型、Schema、自定义验证器
 ```
 
-### 完成 PRP 所需的任务列表（按完成顺序排列）
+### 任务分解（按执行顺序）
 
 ```yaml
-任务 1:
-修改 (MODIFY) src/existing_module.py:
-  - 查找模式 (FIND pattern): "class OldImplementation"
-  - 注入位置 (INJECT after): 在包含 "def __init__" 的行之后
-  - 保留 (PRESERVE): 现有的方法签名
+Task 1:
+  MODIFY: src/existing_module.py
+    - FIND: "class OldImplementation"
+    - INJECT_AFTER: "def __init__"
+    - PRESERVE: 现有方法签名
 
-创建 (CREATE) src/new_feature.py:
-  - 镜像模式 (MIRROR pattern from): 参考 src/similar_feature.py
-  - 修改 (MODIFY): 类名和核心逻辑
-  - 保持 (KEEP): 错误处理模式一致
+  CREATE: src/new_feature.py
+    - MIRROR_FROM: src/similar_feature.py
+    - MODIFY: 类名和核心逻辑
+    - KEEP: 错误处理模式
 
-...(...)
-
-任务 N:
-...
-
+Task N:
+  ...
 ```
 
-### 根据需要的每个任务的伪代码
+### 关键实现伪代码
 
 ```python
-
-# 任务 1
-# 伪代码包含关键细节，不要写出完整代码
+# Task 1: [功能描述]
 async def new_feature(param: str) -> Result:
-    # 模式 (PATTERN): 始终先验证输入 (参考 src/validators.py)
-    validated = validate_input(param)  # 抛出 ValidationError
+    # PATTERN: 输入验证优先 (参考 src/validators.py)
+    validated = validate_input(param)
     
-    # 陷阱 (GOTCHA): 此库需要连接池
-    async with get_connection() as conn:  # 参考 src/db/pool.py
-        # 模式 (PATTERN): 使用现有的重试装饰器
-        @retry(attempts=3, backoff=exponential)
+    # GOTCHA: 需使用连接池
+    async with get_connection() as conn:
+        # PATTERN: 复用现有重试装饰器
+        @retry(attempts=3)
         async def _inner():
-            # 关键 (CRITICAL): 如果 >10 req/sec，API 返回 429
+            # CRITICAL: API 限流 10 req/sec,超限返回 429
             await rate_limiter.acquire()
             return await external_api.call(validated)
         
         result = await _inner()
     
-    # 模式 (PATTERN): 标准化的响应格式
-    return format_response(result)  # 参考 src/utils/responses.py
-
+    # PATTERN: 统一响应格式
+    return format_response(result)
 ```
 
 ### 集成点
 
 ```yaml
-数据库 (DATABASE):
-  - 迁移 (migration): "向 users 表添加 'feature_enabled' 列"
-  - 索引 (index): "CREATE INDEX idx_feature_lookup ON users(feature_id)"
+DATABASE:
+  - migration: "ALTER TABLE users ADD COLUMN feature_enabled BOOLEAN"
+  - index: "CREATE INDEX idx_feature_lookup ON users(feature_id)"
   
-配置 (CONFIG):
-  - 添加到 (add to): config/settings.py
-  - 模式 (pattern): "FEATURE_TIMEOUT = int(os.getenv('FEATURE_TIMEOUT', '30'))"
+CONFIG:
+  - add_to: config/settings.py
+  - pattern: "FEATURE_TIMEOUT = int(os.getenv('FEATURE_TIMEOUT', '30'))"
   
-路由 (ROUTES):
-  - 添加到 (add to): src/api/routes.py  
-  - 模式 (pattern): "router.include_router(feature_router, prefix='/feature')"
-
+ROUTES:
+  - add_to: src/api/routes.py  
+  - pattern: "router.include_router(feature_router, prefix='/feature')"
 ```
 
 ## 验证循环
 
-### 第 1 层：语法与风格
+### 第 1 层：静态分析
 
 ```bash
-# 首先运行这些 - 在继续之前修复所有错误
-ruff check src/new_feature.py --fix  # 自动修复可能的错误
+ruff check src/new_feature.py --fix  # Lint 并自动修复
 mypy src/new_feature.py              # 类型检查
-
-# 预期：无错误。如果有错误，阅读错误信息并修复。
-
+# 预期无错误,有错误时分析原因并修复
 ```
 
-### 第 2 层：单元测试（每个新功能/文件/函数使用现有的测试模式）
+### 第 2 层：单元测试
 
 ```python
-# 创建 (CREATE) test_new_feature.py 并包含这些测试用例：
+# test_new_feature.py
 def test_happy_path():
-    """基本功能正常工作"""
+    """验证基本功能正常执行"""
     result = new_feature("valid_input")
     assert result.status == "success"
 
 def test_validation_error():
-    """无效输入引发 ValidationError"""
+    """验证输入校验机制"""
     with pytest.raises(ValidationError):
         new_feature("")
 
 def test_external_api_timeout():
-    """优雅地处理超时"""
+    """验证超时异常处理"""
     with mock.patch('external_api.call', side_effect=TimeoutError):
         result = new_feature("valid")
         assert result.status == "error"
         assert "timeout" in result.message
-
 ```
 
 ```bash
-# 运行并迭代直到通过：
 uv run pytest test_new_feature.py -v
-# 如果失败：阅读错误，理解根本原因，修复代码，重新运行（永远不要为了通过测试而 mock 一切/造假）
-
+# 失败时流程：分析错误 → 定位根因 → 修复代码 → 重新测试
 ```
 
 ### 第 3 层：集成测试
 
 ```bash
-# 启动服务
+# 启动开发服务器
 uv run python -m src.main --dev
 
-# 测试端点
+# 端点测试
 curl -X POST http://localhost:8000/feature \
   -H "Content-Type: application/json" \
   -d '{"param": "test_value"}'
 
-# 预期: {"status": "success", "data": {...}}
-# 如果出错: 检查 logs/app.log 中的堆栈跟踪
-
+# 预期响应: {"status": "success", "data": {...}}
+# 异常排查: 检查 logs/app.log
 ```
 
 ## 最终验证清单
 
-* [ ] 所有测试通过: `uv run pytest tests/ -v`
-* [ ] 无代码检查 (Linting) 错误: `uv run ruff check src/`
-* [ ] 无类型错误: `uv run mypy src/`
-* [ ] 手动测试成功: [具体的 curl/命令]
-* [ ] 错误情况处理得当
-* [ ] 日志信息丰富但不过于冗长
-* [ ] 文档已更新（如果需要）
+* [ ] 单元测试通过：`uv run pytest tests/ -v`
+* [ ] 静态检查通过：`uv run ruff check src/`
+* [ ] 类型检查通过：`uv run mypy src/`
+* [ ] 手动测试通过：[具体测试命令]
+* [ ] 异常场景处理完善
+* [ ] 日志记录适度且有效
+* [ ] 相关文档已同步更新
 
 ---
 
-## 要避免的反模式 (Anti-Patterns)
+## 反模式规避清单
 
-* ❌ 现有模式可行时，不要创建新模式
-* ❌ 不要因为“应该能行”就跳过验证
-* ❌ 不要忽略失败的测试 - 修复它们
-* ❌ 不要在异步上下文中使用同步函数
-* ❌ 不要硬编码本应配置的值
-* ❌ 不要捕获所有异常 (catch all) - 要具体捕获
+* ❌ 已有可用模式时避免重复造轮子
+* ❌ 禁止跳过验证环节
+* ❌ 失败测试必须修复,不得忽略
+* ❌ 异步上下文禁用同步函数
+* ❌ 避免硬编码,使用配置管理
+* ❌ 异常捕获需具体化,避免泛捕获
