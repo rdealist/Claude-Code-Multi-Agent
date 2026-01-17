@@ -11,7 +11,7 @@
 ### 1. 智能项目感知
 通过 Hooks 系统自动检测项目类型、框架和依赖，无需手动配置。
 
-### 2. 300+ 专家 Skills
+### 2. 多个专家 Skills
 按技术领域分类的专家智能体，覆盖前端、后端、数据、安全等所有开发环节。
 
 ### 3. MCP 工具生态
@@ -26,7 +26,7 @@
 
 ### 前置要求
 
-- **Claude Code** - [下载 Claude Desktop](https://claude.ai/download)
+- **Claude Code** - [下载 Claude Code](https://claude.ai/download)
 - **Ollama**（推荐）- 本地 LLM 引擎
 - **uv**（推荐）- Python 包管理器
 
@@ -64,9 +64,9 @@ cp .env.example .env
 
 > 📖 **详细安装指南**：[docs/INSTALLATION.md](./docs/INSTALLATION.md)
 
-### 分支策略
+### 分支策略示例
 
-根据开发场景选择对应分支：
+由于完整配置较为臃肿，可根据开发场景选择对应分支，也可以根据自己项目需求增删mcp工具和skills：
 
 | 分支 | 用途 | 包含的 MCP 工具 |
 |------|------|----------------|
