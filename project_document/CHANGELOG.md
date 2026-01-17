@@ -3,8 +3,29 @@
 > **Format**: Follow `.claude/output-styles/bullet-points.md`
 > **Commits**: Follow commitlint convention (type(scope): subject)
 
+## [2026-01-18]
+### Added
+- feat(branch): Create domain-specific configuration branches
+  - `frontend`: playwright, magic-ui, chrome-devtools, magic
+  - `backend`: mysql, redis-mcp, docker
+  - `algorithm`: Context7, Sequential Thinking, Shrimp Task Manager
+
+### Changed
+- chore(mcp): Restore @latest versions for all MCP servers
+- docs(readme): Add branch strategy documentation
+
 ## [2026-01-17]
 ### Changed
+- refactor(docs): Restructure README and documentation for better usability
+  - README.md: Reduced from 1000+ to ~350 lines, quick start focused
+  - Created modular docs/ structure with 5 detailed guides
+  - docs/SKILLS.md: Comprehensive reference for all 22 Skills
+  - docs/INSTALLATION.md: Detailed installation and configuration guide
+  - docs/MCP_TOOLS.md: Complete MCP servers documentation (13 servers)
+  - docs/HOOKS.md: Hooks system guide with practical examples
+  - docs/TROUBLESHOOTING.md: Common issues and solutions
+  - Organized Skills into 9 technical domain categories
+  - Target audience: experienced developers, actionable content
 - refactor(docs): Rewrite core documents in English for token efficiency
   - CLAUDE.md: Simplified from 92 to 68 lines
   - output-styles/*.md: Condensed templates
