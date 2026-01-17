@@ -14,6 +14,11 @@
 - None (all tasks completed)
 
 ## Recently Completed
+- [2026-01-18] Git workflow configuration
+  - Configured Git Hooks for code quality checks
+  - pre-commit: debug statements, large files, sensitive data detection
+  - commit-msg: commitlint format validation (type(scope): subject)
+  - Kept existing branch structure: master, algorithm, backend, frontend
 - [2026-01-18] Branch strategy and MCP version update
   - Restored @latest versions for all MCP servers
   - Created `frontend` branch: playwright, magic-ui, chrome-devtools, magic
@@ -58,6 +63,7 @@
 - Modular documentation structure: separate detailed guides from main README
 - Classify Skills by technical domain for better discoverability
 - Target experienced developers with concise, actionable content
+- Git Hooks for local code quality enforcement (pre-commit + commit-msg)
 
 ---
 *Maintained by Claude Code*

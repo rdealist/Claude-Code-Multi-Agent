@@ -28,6 +28,13 @@
 - **Cross-referencing**: Link related sections across documents
 - **Target audience**: Experienced developers, actionable content
 
+### Git Hooks Pattern
+- **Location**: `.git/hooks/` (local only, not version controlled)
+- **pre-commit**: Check debug statements, large files (>1MB), sensitive data patterns
+- **commit-msg**: Validate commitlint format (`type(scope): subject`)
+- **Types**: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert
+- **Bypass**: Use `git commit --no-verify` when necessary (not recommended)
+
 ## FAQ
 
 ### Q: How to choose the right branch?
@@ -91,6 +98,14 @@ A: Group Skills by technical domain (Frontend, Backend, Data, Security, etc.) ra
   - Task-oriented discovery: users think "I need backend help" not "I need backend-specialist"
   - Faster navigation: domain categories reduce search space
   - Better learning: grouping reveals related capabilities
+
+### Git Hooks Local Enforcement
+- **Context**: Need local code quality checks without external dependencies
+- **Decision**: Use native Git hooks (pre-commit + commit-msg)
+- **Reason**:
+  - Zero dependencies: pure bash scripts, no npm packages required
+  - Immediate feedback: checks run before commit completes
+  - Flexible: can bypass with `--no-verify` when necessary
 
 ## Resources
 - [MCP Protocol Docs](https://modelcontextprotocol.io/)

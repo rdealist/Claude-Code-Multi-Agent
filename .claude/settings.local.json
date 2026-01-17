@@ -32,7 +32,12 @@
       "mcp__filesystem__read_text_file",
       "Bash(python3:*)",
       "Skill(ui-ux-pro-max)",
-      "mcp__acp__Bash"
+      "mcp__acp__Bash",
+      "Bash(for branch in master frontend backend algorithm)",
+      "Bash(do echo:*)",
+      "Bash(done)",
+      "Bash(for branch in frontend backend algorithm)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": []
