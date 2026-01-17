@@ -38,13 +38,10 @@
   },
   "enabledMcpjsonServers": [
     "Context7",
-    "acemcp",
-    "Exa AI (搜索)",
     "mcp-feedback-enhanced",
     "Sequential Thinking",
     "Shrimp Task Manager",
     "everything-search",
-    "github",
     "filesystem",
     "magic",
     "playwright",
@@ -54,5 +51,6 @@
     "time-mcp",
     "redis-mcp",
     "chrome-devtools"
-  ]
+  ],
+  "enableAllProjectMcpServers": true
 }

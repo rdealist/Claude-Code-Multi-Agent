@@ -1,13 +1,8 @@
 {
   "mcpServers": {
     "Context7": {
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"]
-    },
-    "Exa AI (搜索)": {
-      "type": "http",
-      "url": "https://mcp.exa.ai/mcp",
-      "headers": {}
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@1.0.0"]
     },
     "mcp-feedback-enhanced": {
       "command": "uvx",
@@ -22,106 +17,77 @@
       "autoApprove": ["interactive_feedback"]
     },
     "Sequential Thinking": {
-      "command": "cmd",
-      "args": ["/c", "npx", "@modelcontextprotocol/server-sequential-thinking"]
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking@1.0.0"]
     },
     "Shrimp Task Manager": {
-      "command": "cmd",
-      "args": ["/c", "npx", "mcp-shrimp-task-manager"]
-    },
-    "everything-search": {
-      "command": "cmd",
-      "args": ["/c", "uvx", "mcp-server-everything-search"],
-      "env": {
-        "EVERYTHING_SDK_PATH": "E:\\\\everythingsdk\\\\dll\\\\Everything64.dll"
-      }
-    },
-    "github": {
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
-      }
+      "command": "npx",
+      "args": ["-y", "mcp-shrimp-task-manager@1.0.0"]
     },
     "filesystem": {
-      "command": "cmd",
+      "command": "npx",
       "args": [
-        "/c",
-        "npx",
         "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "D:\\\\",
-        "C:\\\\Users\\\\Prorise\\\\Desktop",
-        "E:\\\\"
+        "@modelcontextprotocol/server-filesystem@2.0.0",
+        "${MCP_FS_PATH_1:-.}",
+        "${MCP_FS_PATH_2:-$HOME/Desktop}",
+        "${MCP_FS_PATH_3:-$HOME/Documents}"
       ]
     },
     "magic": {
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "@21st-dev/magic@latest"],
+      "command": "npx",
+      "args": ["-y", "@21st-dev/magic@1.0.0"],
       "env": {
-        "API_KEY": ""
+        "API_KEY": "${MAGIC_API_KEY}"
       }
     },
     "playwright": {
       "type": "stdio",
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "@playwright/mcp@latest"],
-      "env": {}
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@0.0.20"]
     },
     "docker": {
       "type": "stdio",
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "mcp-server-docker"],
-      "env": {}
+      "command": "npx",
+      "args": ["-y", "mcp-server-docker@1.0.0"]
     },
     "mysql": {
       "type": "stdio",
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "@benborla29/mcp-server-mysql"],
+      "command": "npx",
+      "args": ["-y", "@benborla29/mcp-server-mysql@1.0.0"],
       "env": {
-        "MYSQL_HOST": "localhost",
-        "MYSQL_PORT": "3306",
-        "MYSQL_USER": "root",
-        "MYSQL_PASS": "root",
-        "MYSQL_DB": "security"
+        "MYSQL_HOST": "${MYSQL_HOST:-localhost}",
+        "MYSQL_PORT": "${MYSQL_PORT:-3306}",
+        "MYSQL_USER": "${MYSQL_USER:-root}",
+        "MYSQL_PASS": "${MYSQL_PASS}",
+        "MYSQL_DB": "${MYSQL_DB:-test}"
       }
     },
     "magic-ui": {
       "type": "stdio",
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "magicui-mcp"],
-      "env": {}
+      "command": "npx",
+      "args": ["-y", "magicui-mcp@1.0.0"]
     },
     "time-mcp": {
       "type": "stdio",
-      "command": "cmd",
-      "args": ["/c", "npx", "time-mcp"],
-      "env": {}
+      "command": "npx",
+      "args": ["-y", "time-mcp@1.0.0"]
     },
     "redis-mcp": {
-      "command": "cmd",
+      "command": "npx",
       "args": [
-        "/c",
-        "npx",
         "-y",
-        "@pickstar-2002/redis-mcp@latest",
-        "--host",
-        "localhost",
-        "--port",
-        "6379",
-        "--password",
-        "",
-        "--db",
-        "0",
-        "--username",
-        "root"
+        "@pickstar-2002/redis-mcp@1.0.0",
+        "--host", "${REDIS_HOST:-localhost}",
+        "--port", "${REDIS_PORT:-6379}",
+        "--password", "${REDIS_PASS}",
+        "--db", "${REDIS_DB:-0}"
       ]
     },
     "chrome-devtools": {
       "type": "stdio",
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "chrome-devtools-mcp@latest"],
-      "env": {}
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@1.0.0"]
     }
   }
 }

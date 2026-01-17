@@ -1,26 +1,50 @@
-# 项目知识库
+# Project Knowledge Base
 
-> **格式要求**: 严格遵循 `.claude/output-styles/markdown-focused.md` 格式规范
+> **Format**: Follow `.claude/output-styles/markdown-focused.md`
 
-## 代码模式
+## Code Patterns
 
-### 认证模式
-- 待补充
+### MCP Configuration Pattern
+- **Cross-platform**: Use `npx`/`uvx` directly, no shell wrappers
+- **Version locking**: Pin versions to avoid `@latest` instability
+- **Credentials**: Reference env vars via `${ENV_VAR:-default}` syntax
 
-## 常见问题
+### Document Optimization Pattern
+- **Language**: Write prompts/docs in English for token efficiency
+- **Conciseness**: Minimize redundancy while preserving semantics
+- **Structure**: Use tables and lists over prose
 
-### Q: 待补充
-A: 待补充
+## FAQ
 
-## 技术决策记录
+### Q: MCP server won't start on different platforms?
+A: Check if `.mcp.json` uses platform-specific commands (e.g., `cmd /c`). Use cross-platform `npx` or `uvx` instead.
 
-### 决策1
-- **背景**: 待补充
-- **决策**: 待补充
-- **原因**: 待补充
+### Q: How to manage database passwords securely?
+A: Store sensitive info in `.env` file. Reference in `.mcp.json` via `${MYSQL_PASS}` syntax.
 
-## 学习资源
-- 待补充
+### Q: Why write documents in English?
+A: English uses fewer tokens than CJK characters, reducing prompt size and improving context efficiency.
+
+## Technical Decision Records
+
+### MCP Version Locking
+- **Context**: `@latest` versions may cause unexpected breaking updates
+- **Decision**: Lock major MCP servers to specific versions
+- **Reason**: Ensure workflow stability; manual upgrade with compatibility testing
+
+### Credential Environment Variables
+- **Context**: `.mcp.json` stored database passwords in plaintext
+- **Decision**: Move sensitive info to `.env`, reference via environment variables
+- **Reason**: Prevent credential exposure in version control
+
+### Document Language Standardization
+- **Context**: Documents injected as prompts were in Chinese
+- **Decision**: Rewrite core docs in English
+- **Reason**: Token efficiency, broader compatibility, clearer semantics
+
+## Resources
+- [MCP Protocol Docs](https://modelcontextprotocol.io/)
+- [Claude Code Docs](https://docs.anthropic.com/claude-code)
 
 ---
-*本文档由 Claude Code 自动维护，请勿手动编辑格式*
+*Maintained by Claude Code*
